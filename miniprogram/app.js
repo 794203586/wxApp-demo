@@ -19,10 +19,22 @@ App({
         traceUser: true,
       })
     }
-    this.getUserInfo();
-    this.globalData = {
+
+    let paramData = {
       env: env
     };
+    var userInfo = wx.getStorageSync("userInfo");
+    var openid = wx.getStorageSync("openid");
+    if(userInfo && openid)
+    {
+      paramData.userInfo = userInfo;
+      paramData.openid = openid;
+    }else
+    {
+      this.getUserInfo();
+    }
+    
+    this.globalData = paramData;
   },
   
   onGetOpenid: function() {
@@ -32,6 +44,8 @@ App({
       data: {},
       success: res => {
         this.globalData.openid = res.result.openid;
+        wx.setStorageSync("openid", res.result.openid);
+
         // wx.navigateTo({
         //   url: '../userConsole/userConsole',
         // });
@@ -55,9 +69,8 @@ App({
             wx.getUserInfo({
               success: res => {
                 this.globalData.userInfo = res.userInfo;
-                // wx.switchTab({
-                //   url: '/pages/home/index'
-                // });
+                wx.setStorageSync("userInfo", res.userInfo);
+
                 // console.log("navigateTo--1");
               },
               fail: err => {

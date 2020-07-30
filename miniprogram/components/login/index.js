@@ -37,6 +37,8 @@ Component({
           data: {},
           success: res => {
             app.globalData.openid = res.result.openid;
+            wx.setStorageSync("openid", res.result.openid);
+            
             // wx.navigateTo({
             //   url: '../userConsole/userConsole',
             // });
@@ -61,6 +63,7 @@ Component({
                 wx.getUserInfo({
                   success: res => {
                     app.globalData.userInfo = res.userInfo;
+                    wx.setStorageSync("userInfo", res.userInfo);
                     
                     this.login();
                     // wx.switchTab({
