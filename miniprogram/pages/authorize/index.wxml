@@ -1,0 +1,5 @@
+<view class="authorize">
+  <open-data type="userNickName"></open-data>
+  <open-data type="userAvatarUrl"></open-data>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">给你我的爱</button>
+</view>

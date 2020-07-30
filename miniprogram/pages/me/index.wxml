@@ -1,0 +1,11 @@
+<view class="me-container container">
+    <view class="row login" bindtap="login">
+        {{loginText}}
+    </view>
+    <view class="row" bindtap="getCity">
+        我在哪里
+    </view>
+
+</view>
+<!-- 授权弹出页面 -->
+<login-tip show="{{showModal}}" bindconfirm="loginSuccess"></login-tip>

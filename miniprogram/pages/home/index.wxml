@@ -1,0 +1,24 @@
+<view class="home-container container">
+    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;"
+     bindscrolltoupper="upper" bindscrolltolower="lower" 
+     scroll-top="{{scrollTop}}">
+        <view class="scroll-view-item" wx:key="_id" data-id="{{item._id}}" bindtap="toDetail" wx:for="{{activitys}}">
+          <view class="item-title">
+            {{item.title}}
+            <text>\n活动日期：{{item.startDate}}</text>
+          </view>
+          <view class="item-content">
+            {{item.content}}
+            <image class="uploader-image" src="{{item.imageJson.imagePath}}" mode="widthFix"></image>
+          </view>
+          <view class="item-users">
+
+            <view class="users-img" wx:key="i" wx:for="{{item.users}}" wx:for-index="i" wx:for-item="imgItem">
+              <image class="uploader-image"
+              src="{{imgItem.avatarUrl}}" mode="widthFix"></image>
+            </view>
+            
+          </view>
+        </view>
+    </scroll-view>
+</view>

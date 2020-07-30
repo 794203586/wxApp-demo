@@ -1,0 +1,40 @@
+.border-t
+{
+    border-top:1rpx solid #D9D9D9;
+}
+.border-b
+{
+    border-bottom:1rpx solid #D9D9D9;
+}
+.margin-t10
+{
+    margin-top: 10px;
+}
+.launch-container
+{
+    font-size: 16px;
+}
+.launch-container .form
+{
+    background-color: #fff;
+}
+.launch-container .row
+{
+}
+.launch-container .row input,.launch-container .row textarea,.launch-container .row.uploader
+{
+    padding-left: 10px;
+}
+.launch-container .row.uploader,.launch-container .row .picker
+{
+    /* height: 2.58823529em; */
+    min-height: 2.58823529em;
+    line-height: 2.58823529em;
+}
+
+.launch-container .uploader-container image
+{
+    max-width: 100%;
+    max-height: 20vh;
+    margin: 20rpx 0;
+}

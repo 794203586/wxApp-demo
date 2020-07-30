@@ -1,0 +1,23 @@
+<view class="home-container-detial">
+    <view class="title">
+        {{model && model.title || "-"}}
+        <text>\n活动日期：{{model && model.startDate || "-"}}</text>
+    </view>
+    <view class="content">
+        {{model && model.content || "-"}}
+        
+        <image class="uploader-image" wx:if="model && model.imageJson.imagePath ? false : true"
+            src="{{model.imageJson.imagePath}}" mode="widthFix">11</image>
+    </view>
+    <view class="users">
+        <view class="users-img" wx:if="model && model.users ? false : true"
+         wx:key="i" wx:for="{{model.users}}" wx:for-index="i" wx:for-item="imgItem">
+            <image class="uploader-image"
+            src="{{imgItem.avatarUrl}}" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="sign-up">
+      <button class="margin-b10" disabled="{{isDisabled}}" 
+      type="primary" bindtap="signUp">报名</button>
+    </view>
+</view>

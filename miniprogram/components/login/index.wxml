@@ -1,0 +1,17 @@
+<!-- <modal hidden="{{hiddenmodalput}}" title="登录" cancel-text="拒绝" confirm-text="登录" 
+    bindcancel="cancel" bindconfirm="login">
+    <open-data type="userNickName"></open-data>
+    <open-data type="userAvatarUrl"></open-data>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">给你我的爱</button>
+</modal> -->
+<view class="modal-mask" wx:if="{{show}}" bindtap="clickMask">
+  <view class="modal-content">
+    <open-data type="userNickName"></open-data>
+    <open-data type="userAvatarUrl"></open-data>
+    <view class="modal-footer">
+      <view class="cancel-btn" bindtap="cancel">暂不登录</view>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即登录</button>
+      <!-- <view class="confirm-btn" bindtap="confirm">确定 </view> -->
+    </view>
+  </view>
+</view>
