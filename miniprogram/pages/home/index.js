@@ -12,16 +12,6 @@ Page({
       isNoData: false
     },
     initList: function(openid){
-      
-        // 判断是否登录了
-        if(!app.globalData.userInfo)
-        {
-            wx.showToast({
-                icon: "none",
-                title: "请先登录！"
-            });
-            return false;
-        }
 
       if(this.data.isNoData)
       {
@@ -36,11 +26,18 @@ Page({
         pageSize: this.data.pageSize,
         data: {}
       };
+      // 判断是否登录了
       const user = app.globalData.userInfo;
-      if(user)
+      if(!user)
       {
-        param.data.city = user.city;
+        wx.showToast({
+          icon: "none",
+          title: "请先登录！"
+        });
+        return false;
       }
+      param.data.city = user.city;
+
       getActivitys(param).then(res =>{
         let lists = this.data.activitys;
         for(let m of res)
@@ -62,6 +59,7 @@ Page({
       });
     },
     initData: function(){
+      
       this.setData({
         activitys: [],
         scrollHeight: 0,  
